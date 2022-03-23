@@ -76,6 +76,13 @@
                             HorizontalContentAlignment="Center" />
                 </StackPanel>
             </StackPanel>
+
+            <StackPanel Grid.Row="1" Spacing="10" Margin="10">
+                <StackPanel Spacing="5">
+                    <Button Content="github test" Click="Button_OnClick" HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
         </Grid>
 
     </Grid>

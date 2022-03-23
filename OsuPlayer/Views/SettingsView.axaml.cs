@@ -1,7 +1,9 @@
 ﻿using System;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.ReactiveUI;
 using OsuPlayer.IO.Storage.Config;
+using OsuPlayer.Network;
 using ReactiveUI;
 
 namespace OsuPlayer.Views;
@@ -23,5 +25,10 @@ public partial class SettingsView : ReactiveUserControl<SettingsViewModel>
     {
         using var config = new Config();
         ViewModel!.OsuLocation = config.Read().OsuPath!;
+    }
+
+    private void Button_OnClick(object? sender, RoutedEventArgs e)
+    {
+        GitHubWrapper.GetLatestRelease();
     }
 }
