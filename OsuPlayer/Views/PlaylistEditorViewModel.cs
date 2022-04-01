@@ -3,38 +3,42 @@ using System.Linq;
 using System.Reactive.Disposables;
 using DynamicData;
 using OsuPlayer.Data.OsuPlayer.Classes;
-using OsuPlayer.IO.DbReader;
+using OsuPlayer.Extensions;
+using OsuPlayer.IO.DbReader.DataModels;
+using OsuPlayer.Modules.Audio;
 using OsuPlayer.ViewModels;
+using OsuPlayer.Windows;
 using ReactiveUI;
+using Splat;
 
 namespace OsuPlayer.Views;
 
 public class PlaylistEditorViewModel : BaseViewModel
 {
+    private readonly Player _player;
     private Playlist? _currentSelectedPlaylist;
     private bool _isDeletePlaylistPopupOpen;
     private bool _isNewPlaylistPopupOpen;
     private bool _isRenamePlaylistPopupOpen;
-    private string? _newPlaylistnameText;
+    private string _newPlaylistNameText;
     private SourceList<Playlist>? _playlists;
-    private List<MapEntry>? _selectedPlaylistItems;
+    private List<IMapEntryBase>? _selectedPlaylistItems;
 
-    private List<MapEntry>? _selectedSongListItems;
+    private List<IMapEntryBase>? _selectedSongListItems;
 
-    public PlaylistEditorViewModel()
+    public PlaylistEditorViewModel(Player player)
     {
+        _player = player;
+
         Activator = new ViewModelActivator();
 
         this.WhenActivated(disposables =>
         {
             Disposable.Create(() => { }).DisposeWith(disposables);
-
-            if (Playlists.Count > 0 && CurrentSelectedPlaylist == default)
-                CurrentSelectedPlaylist = Playlists.Items.ElementAt(0);
         });
 
-        SelectedPlaylistItems = new();
-        SelectedSongListItems = new();
+        SelectedPlaylistItems = new List<IMapEntryBase>();
+        SelectedSongListItems = new List<IMapEntryBase>();
     }
 
     public bool IsDeletePlaylistPopupOpen
@@ -55,13 +59,13 @@ public class PlaylistEditorViewModel : BaseViewModel
         set => this.RaiseAndSetIfChanged(ref _isNewPlaylistPopupOpen, value);
     }
 
-    public string NewPlaylistnameText
+    public string NewPlaylistNameText
     {
-        get => _newPlaylistnameText;
-        set => this.RaiseAndSetIfChanged(ref _newPlaylistnameText, value);
+        get => _newPlaylistNameText;
+        set => this.RaiseAndSetIfChanged(ref _newPlaylistNameText, value);
     }
 
-    public Playlist CurrentSelectedPlaylist
+    public Playlist? CurrentSelectedPlaylist
     {
         get => _currentSelectedPlaylist;
         set
@@ -78,15 +82,15 @@ public class PlaylistEditorViewModel : BaseViewModel
         set => this.RaiseAndSetIfChanged(ref _playlists, value);
     }
 
-    public List<MapEntry> SongList => Core.Instance.Player.SongSource!;
+    public List<IMapEntryBase> SongList => _player.SongSourceList!;
 
-    public List<MapEntry> SelectedSongListItems
+    public List<IMapEntryBase>? SelectedSongListItems
     {
         get => _selectedSongListItems;
         set => this.RaiseAndSetIfChanged(ref _selectedSongListItems, value);
     }
 
-    public List<MapEntry> SelectedPlaylistItems
+    public List<IMapEntryBase>? SelectedPlaylistItems
     {
         get => _selectedPlaylistItems;
         set => this.RaiseAndSetIfChanged(ref _selectedPlaylistItems, value);

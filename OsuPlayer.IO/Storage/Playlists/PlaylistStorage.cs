@@ -2,33 +2,41 @@
 
 namespace OsuPlayer.IO.Storage.Playlists;
 
+/// <summary>
+/// The PlaylistStorage reads and writes playlist data to the playlists.json file located in the data folder.
+/// </summary>
 public class PlaylistStorage : IStorable<PlaylistContainer>
 {
-    public string Path => "data/playlists.json";
+    private PlaylistContainer? _container;
+    public string Path => System.IO.Path.Combine("data", "playlists.json");
 
-    public PlaylistContainer? Container { get; set; }
+    public PlaylistContainer Container
+    {
+        get => _container ?? Read();
+        set => _container = value;
+    }
 
     public PlaylistContainer Read()
     {
-        if (!File.Exists(Path) || Container != null)
-            return Container ??= new(false);
+        if (!File.Exists(Path) || _container != null)
+            return _container ??= new PlaylistContainer(false);
 
         var data = File.ReadAllText(Path);
 
-        return Container ??= (string.IsNullOrWhiteSpace(data)
-            ? new(false)
+        return _container ??= (string.IsNullOrWhiteSpace(data)
+            ? new PlaylistContainer(false)
             : JsonConvert.DeserializeObject<PlaylistContainer>(data))!;
     }
 
     public async Task<PlaylistContainer> ReadAsync()
     {
-        if (!File.Exists(Path) || Container != null)
-            return Container ??= new(false);
+        if (!File.Exists(Path) || _container != null)
+            return _container ??= new PlaylistContainer(false);
 
         var data = await File.ReadAllTextAsync(Path);
 
-        return Container ??= (string.IsNullOrWhiteSpace(data)
-            ? new(false)
+        return _container ??= (string.IsNullOrWhiteSpace(data)
+            ? new PlaylistContainer(false)
             : JsonConvert.DeserializeObject<PlaylistContainer>(data))!;
     }
 
@@ -41,18 +49,20 @@ public class PlaylistStorage : IStorable<PlaylistContainer>
 
     public async Task SaveAsync(PlaylistContainer container)
     {
+        Directory.CreateDirectory("data");
+
         await File.WriteAllTextAsync(Path, JsonConvert.SerializeObject(container));
     }
 
     public void Dispose()
     {
-        if (Container != null)
-            Save(Container);
+        if (_container != null)
+            Save(_container);
     }
 
     public async ValueTask DisposeAsync()
     {
-        if (Container != default)
-            await SaveAsync(Container);
+        if (_container != default)
+            await SaveAsync(_container);
     }
 }

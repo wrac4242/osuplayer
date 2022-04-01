@@ -1,18 +1,25 @@
 ﻿using OsuPlayer.IO.DbReader;
+using OsuPlayer.IO.DbReader.DataModels;
 
 namespace OsuPlayer.IO;
 
 public sealed class SongImporter
 {
-    public static async Task<ICollection<MapEntry>>? ImportSongs(string path)
+    public static async Task<ICollection<IMapEntryBase>?> ImportSongs(string path)
     {
-        if (string.IsNullOrEmpty(path)) return null!;
+        if (string.IsNullOrEmpty(path)) return null;
 
-        var maps = (await DbReader.DbReader.ReadOsuDb(path))?.DistinctBy(x => x.BeatmapChecksum)
-            .DistinctBy(x => x.Title).Where(x => !string.IsNullOrEmpty(x.Title)).ToArray();
+        IMapEntryBase[] maps = null;
 
-        if (maps == null || !maps.Any()) return null!;
+        if (File.Exists(Path.Combine(path, "osu!.db")))
+            maps = (await DbReader.DbReader.ReadOsuDb(path))?.DistinctBy(x => x.BeatmapChecksum).OrderBy(x => x.BeatmapSetId)
+                .DistinctBy(x => x.Title).Where(x => !string.IsNullOrEmpty(x.Title)).OrderBy(x => x.Title).ToArray();
+        else if (File.Exists(Path.Combine(path, "client.realm")))
+            maps = (await RealmReader.ReadRealm(path))?.DistinctBy(x => x.BeatmapChecksum).OrderBy(x => x.BeatmapSetId)
+                .DistinctBy(x => x.Title).Where(x => !string.IsNullOrEmpty(x.Title)).OrderBy(x => x.Title).ToArray();
 
-        return maps.OrderBy(x => x.Title).ToArray();
+        if (maps == null || !maps.Any()) return null;
+
+        return maps;
     }
 }

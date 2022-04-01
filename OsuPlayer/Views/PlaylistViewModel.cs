@@ -32,18 +32,9 @@ public class PlaylistViewModel : BaseViewModel
         set => this.RaiseAndSetIfChanged(ref _playlists, value);
     }
 
-    public Playlist SelectedPlaylist
+    public Playlist? SelectedPlaylist
     {
         get => _selectedPlaylist;
         set => this.RaiseAndSetIfChanged(ref _selectedPlaylist, value);
-    }
-
-    public async void OpenPlaylistEditor()
-    {
-        var playlists = await PlaylistManager.GetAllPlaylistsAsync();
-
-        Core.Instance.MainWindow.ViewModel!.PlaylistEditorViewModel.Playlists = playlists.ToSourceList();
-
-        Core.Instance.MainWindow.ViewModel!.MainView = Core.Instance.MainWindow.ViewModel.PlaylistEditorViewModel;
     }
 }

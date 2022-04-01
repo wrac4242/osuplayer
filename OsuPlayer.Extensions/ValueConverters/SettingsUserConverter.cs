@@ -8,7 +8,9 @@ public class SettingsUserConverter : IValueConverter
 {
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        var user = (User) value;
+        if (value != null && value.GetType() != typeof(User))
+            return "Wrong converter usage";
+        var user = (User)value;
 
         return user?.Name ?? "Not logged in";
     }
