@@ -8,6 +8,7 @@ using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.VisualTree;
 using OsuPlayer.IO.Storage.Config;
+using OsuPlayer.Network;
 using OsuPlayer.UI_Extensions;
 using OsuPlayer.Windows;
 using ReactiveUI;
@@ -25,18 +26,26 @@ public partial class SettingsView : ReactivePlayerControl<SettingsViewModel>
 
     private void InitializeComponent()
     {
-        this.WhenActivated(disposables =>
-        {
-            if (this.GetVisualRoot() is MainWindow mainWindow)
-            {
-                _mainWindow = mainWindow;
-                ViewModel.MainWindow = mainWindow;
-            }
-
-            ViewModel.SettingsCategories =
-                this.FindControl<WrapPanel>("SettingsGrid").Children;
-        });
+        this.WhenActivated(Block);
         AvaloniaXamlLoader.Load(this);
+    }
+
+    private async void Block(Action<IDisposable> disposables)
+    {
+        if (this.GetVisualRoot() is MainWindow mainWindow)
+        {
+            _mainWindow = mainWindow;
+            ViewModel.MainWindow = mainWindow;
+        }
+
+        ViewModel.SettingsCategories = this.FindControl<WrapPanel>("SettingsGrid").Children;
+
+        var release = await GitHubWrapper.GetLatestPreRelease();
+
+        if (release is null) return;
+
+        ViewModel.LatestUpdateMarkdown = release.Body;
+        ViewModel.LatestUpdateTitle = release.Name;
     }
 
     private void SettingsView_OnInitialized(object? sender, EventArgs e)

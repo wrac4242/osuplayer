@@ -23,7 +23,21 @@ public class SettingsViewModel : BaseViewModel
     private WindowTransparencyLevel _selectedTransparencyLevel = new Config().Read().TransparencyLevelHint;
     private string _settingsSearchQ;
 
+    public string LatestUpdateTitle
+    {
+        get => "patchnotes for: v" + _latestUpdateTitle;
+        set => this.RaiseAndSetIfChanged(ref _latestUpdateTitle, value);
+    }
+
+    public string LatestUpdateMarkdown
+    {
+        get => _latestUpdateMarkdown;
+        set => this.RaiseAndSetIfChanged(ref _latestUpdateMarkdown, value);
+    }
+
     public MainWindow? MainWindow;
+    private string _latestUpdateMarkdown;
+    private string _latestUpdateTitle;
 
     public SettingsViewModel(Player player)
     {
