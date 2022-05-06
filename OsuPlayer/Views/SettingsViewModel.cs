@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
+using System.Resources;
 using Avalonia.Controls;
 using OsuPlayer.Data.OsuPlayer.Classes;
 using OsuPlayer.Data.OsuPlayer.Enums;
@@ -35,7 +36,11 @@ public class SettingsViewModel : BaseViewModel
     public string CurrentLanguage
     {
         get => _currentLanguage;
-        set => this.RaiseAndSetIfChanged(ref _currentLanguage, value);
+        set
+        {
+            Resources.Culture = CultureInfo.GetCultures(CultureTypes.NeutralCultures).FirstOrDefault(x => x.EnglishName == value);
+            this.RaiseAndSetIfChanged(ref _currentLanguage, value);
+        }
     }
 
     public ObservableCollection<string> AvailableLanguages

@@ -113,5 +113,8 @@
       <EmbeddedResource Update="Resources.resx">
         <Generator>PublicResXFileCodeGenerator</Generator>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources.de.resx">
+        <DependentUpon>Resources.resx</DependentUpon>
+      </EmbeddedResource>
     </ItemGroup>
 </Project>

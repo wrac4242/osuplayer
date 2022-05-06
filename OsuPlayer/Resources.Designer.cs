@@ -22,7 +22,7 @@ namespace OsuPlayer {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace OsuPlayer {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OsuPlayer.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace OsuPlayer {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Audio Settings.
         /// </summary>
-        internal static string AudioSettingsTitle {
+        public static string AudioSettingsTitle {
             get {
                 return ResourceManager.GetString("AudioSettingsTitle", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to customize.
         /// </summary>
-        internal static string CustomizeTitle {
+        public static string CustomizeTitle {
             get {
                 return ResourceManager.GetString("CustomizeTitle", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to donator stuff.
         /// </summary>
-        internal static string DonatorStuffTitle {
+        public static string DonatorStuffTitle {
             get {
                 return ResourceManager.GetString("DonatorStuffTitle", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to enter password to save.
         /// </summary>
-        internal static string EnterPasswordToSave {
+        public static string EnterPasswordToSave {
             get {
                 return ResourceManager.GetString("EnterPasswordToSave", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to enter playlistname.
         /// </summary>
-        internal static string EnterPlaylistNamePlaceholder {
+        public static string EnterPlaylistNamePlaceholder {
             get {
                 return ResourceManager.GetString("EnterPlaylistNamePlaceholder", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Equalizer settings.
         /// </summary>
-        internal static string EqualizerSettingsText {
+        public static string EqualizerSettingsText {
             get {
                 return ResourceManager.GetString("EqualizerSettingsText", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to General Settings.
         /// </summary>
-        internal static string GeneralSettingsTitle {
+        public static string GeneralSettingsTitle {
             get {
                 return ResourceManager.GetString("GeneralSettingsTitle", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Import osu! collections.
         /// </summary>
-        internal static string ImportCollectionsTitle {
+        public static string ImportCollectionsTitle {
             get {
                 return ResourceManager.GetString("ImportCollectionsTitle", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to import osu! songs.
         /// </summary>
-        internal static string ImportSongsText {
+        public static string ImportSongsText {
             get {
                 return ResourceManager.GetString("ImportSongsText", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
-        internal static string Language {
+        public static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Level.
         /// </summary>
-        internal static string Level {
+        public static string Level {
             get {
                 return ResourceManager.GetString("Level", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to login.
         /// </summary>
-        internal static string Login {
+        public static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to login to osu!player.
         /// </summary>
-        internal static string LoginTitle {
+        public static string LoginTitle {
             get {
                 return ResourceManager.GetString("LoginTitle", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to new password.
         /// </summary>
-        internal static string NewPassword {
+        public static string NewPassword {
             get {
                 return ResourceManager.GetString("NewPassword", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Not logged in.
         /// </summary>
-        internal static string NotLoggedInText {
+        public static string NotLoggedInText {
             get {
                 return ResourceManager.GetString("NotLoggedInText", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to open equalizer.
         /// </summary>
-        internal static string OpenEqualizerText {
+        public static string OpenEqualizerText {
             get {
                 return ResourceManager.GetString("OpenEqualizerText", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to osu! location: {0}.
         /// </summary>
-        internal static string OsuLocationText {
+        public static string OsuLocationText {
             get {
                 return ResourceManager.GetString("OsuLocationText", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to osu!profile ID (NOT URL).
         /// </summary>
-        internal static string OsuProfileIDNU {
+        public static string OsuProfileIDNU {
             get {
                 return ResourceManager.GetString("OsuProfileIDNU", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to osu!profile ID.
         /// </summary>
-        internal static string OsuProfileIDPlaceholder {
+        public static string OsuProfileIDPlaceholder {
             get {
                 return ResourceManager.GetString("OsuProfileIDPlaceholder", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
-        internal static string Password {
+        public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Patch-notes.
         /// </summary>
-        internal static string PatchNotesTitle {
+        public static string PatchNotesTitle {
             get {
                 return ResourceManager.GetString("PatchNotesTitle", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to playlist editor.
         /// </summary>
-        internal static string PlaylistEditorText {
+        public static string PlaylistEditorText {
             get {
                 return ResourceManager.GetString("PlaylistEditorText", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Playlist Editor.
         /// </summary>
-        internal static string PlaylistEditorTitle {
+        public static string PlaylistEditorTitle {
             get {
                 return ResourceManager.GetString("PlaylistEditorTitle", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to playlist songs.
         /// </summary>
-        internal static string PlaylistSongsTitle {
+        public static string PlaylistSongsTitle {
             get {
                 return ResourceManager.GetString("PlaylistSongsTitle", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to {0} songs played.
         /// </summary>
-        internal static string SongsPlayed {
+        public static string SongsPlayed {
             get {
                 return ResourceManager.GetString("SongsPlayed", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Sorting mode.
         /// </summary>
-        internal static string SortingModeTitle {
+        public static string SortingModeTitle {
             get {
                 return ResourceManager.GetString("SortingModeTitle", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to start import.
         /// </summary>
-        internal static string StartImportText {
+        public static string StartImportText {
             get {
                 return ResourceManager.GetString("StartImportText", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Startup song.
         /// </summary>
-        internal static string StartupSongTitle {
+        public static string StartupSongTitle {
             get {
                 return ResourceManager.GetString("StartupSongTitle", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to sure?.
         /// </summary>
-        internal static string SureQuestion {
+        public static string SureQuestion {
             get {
                 return ResourceManager.GetString("SureQuestion", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to TotalXP.
         /// </summary>
-        internal static string TotalXP {
+        public static string TotalXP {
             get {
                 return ResourceManager.GetString("TotalXP", resourceCulture);
             }
@@ -333,7 +333,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to type to search for settings.
         /// </summary>
-        internal static string TypeToSearchPlaceholder {
+        public static string TypeToSearchPlaceholder {
             get {
                 return ResourceManager.GetString("TypeToSearchPlaceholder", resourceCulture);
             }
@@ -342,7 +342,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
-        internal static string Username {
+        public static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);
             }
@@ -351,7 +351,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to User Settings.
         /// </summary>
-        internal static string UserSettingsTitle {
+        public static string UserSettingsTitle {
             get {
                 return ResourceManager.GetString("UserSettingsTitle", resourceCulture);
             }
@@ -360,7 +360,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Window Blur Method.
         /// </summary>
-        internal static string WindowBlurMethodTitle {
+        public static string WindowBlurMethodTitle {
             get {
                 return ResourceManager.GetString("WindowBlurMethodTitle", resourceCulture);
             }
@@ -369,7 +369,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to Your Description.
         /// </summary>
-        internal static string YourDescription {
+        public static string YourDescription {
             get {
                 return ResourceManager.GetString("YourDescription", resourceCulture);
             }
@@ -378,7 +378,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to your playlists.
         /// </summary>
-        internal static string YourPlaylistsTitle {
+        public static string YourPlaylistsTitle {
             get {
                 return ResourceManager.GetString("YourPlaylistsTitle", resourceCulture);
             }
@@ -387,7 +387,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to your session.
         /// </summary>
-        internal static string YourSessionTitle {
+        public static string YourSessionTitle {
             get {
                 return ResourceManager.GetString("YourSessionTitle", resourceCulture);
             }
@@ -396,7 +396,7 @@ namespace OsuPlayer {
         /// <summary>
         ///   Looks up a localized string similar to your songs.
         /// </summary>
-        internal static string YourSongsTitle {
+        public static string YourSongsTitle {
             get {
                 return ResourceManager.GetString("YourSongsTitle", resourceCulture);
             }
