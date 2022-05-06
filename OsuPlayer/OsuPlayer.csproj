@@ -103,5 +103,15 @@
         <Compile Update="Views\UpdateViewModel.cs">
             <DependentUpon>UpdateView.axaml</DependentUpon>
         </Compile>
+        <Compile Update="Resources.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Update="Resources.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+      </EmbeddedResource>
     </ItemGroup>
 </Project>

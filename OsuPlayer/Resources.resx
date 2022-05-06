@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="YourSessionTitle" xml:space="preserve">
+        <value>your session</value>
+    </data>
+    <data name="YourSongsTitle" xml:space="preserve">
+        <value>your songs</value>
+    </data>
+    <data name="TypeToSearchPlaceholder" xml:space="preserve">
+        <value>type to search for settings</value>
+    </data>
+    <data name="GeneralSettingsTitle" xml:space="preserve">
+        <value>General Settings</value>
+    </data>
+    <data name="UserSettingsTitle" xml:space="preserve">
+        <value>User Settings</value>
+    </data>
+    <data name="AudioSettingsTitle" xml:space="preserve">
+        <value>Audio Settings</value>
+    </data>
+    <data name="PatchNotesTitle" xml:space="preserve">
+        <value>Patch-notes</value>
+    </data>
+    <data name="EqualizerSettingsText" xml:space="preserve">
+        <value>Equalizer settings</value>
+    </data>
+    <data name="OpenEqualizerText" xml:space="preserve">
+        <value>open equalizer</value>
+    </data>
+    <data name="NotLoggedInText" xml:space="preserve">
+        <value>Not logged in</value>
+    </data>
+    <data name="OsuLocationText" xml:space="preserve">
+        <value>osu! location: {0}</value>
+    </data>
+    <data name="ImportSongsText" xml:space="preserve">
+        <value>import osu! songs</value>
+    </data>
+    <data name="ImportCollectionsTitle" xml:space="preserve">
+        <value>Import osu! collections</value>
+    </data>
+    <data name="StartImportText" xml:space="preserve">
+        <value>start import</value>
+    </data>
+    <data name="WindowBlurMethodTitle" xml:space="preserve">
+        <value>Window Blur Method</value>
+    </data>
+    <data name="StartupSongTitle" xml:space="preserve">
+        <value>Startup song</value>
+    </data>
+    <data name="SortingModeTitle" xml:space="preserve">
+        <value>Sorting mode</value>
+    </data>
+    <data name="YourPlaylistsTitle" xml:space="preserve">
+        <value>your playlists</value>
+    </data>
+    <data name="PlaylistEditorText" xml:space="preserve">
+        <value>playlist editor</value>
+    </data>
+    <data name="PlaylistEditorTitle" xml:space="preserve">
+        <value>Playlist Editor</value>
+    </data>
+    <data name="PlaylistSongsTitle" xml:space="preserve">
+        <value>playlist songs</value>
+    </data>
+    <data name="EnterPlaylistNamePlaceholder" xml:space="preserve">
+        <value>enter playlistname</value>
+    </data>
+    <data name="SureQuestion" xml:space="preserve">
+        <value>sure?</value>
+    </data>
+    <data name="LoginTitle" xml:space="preserve">
+        <value>login to osu!player</value>
+    </data>
+    <data name="Username" xml:space="preserve">
+        <value>Username</value>
+    </data>
+    <data name="Password" xml:space="preserve">
+        <value>Password</value>
+    </data>
+    <data name="Login" xml:space="preserve">
+        <value>login</value>
+    </data>
+    <data name="SongsPlayed" xml:space="preserve">
+        <value>{0} songs played</value>
+    </data>
+    <data name="Level" xml:space="preserve">
+        <value>Level</value>
+    </data>
+    <data name="TotalXP" xml:space="preserve">
+        <value>TotalXP</value>
+    </data>
+    <data name="CustomizeTitle" xml:space="preserve">
+        <value>customize</value>
+    </data>
+    <data name="DonatorStuffTitle" xml:space="preserve">
+        <value>donator stuff</value>
+    </data>
+    <data name="OsuProfileIDNU" xml:space="preserve">
+        <value>osu!profile ID (NOT URL)</value>
+    </data>
+    <data name="OsuProfileIDPlaceholder" xml:space="preserve">
+        <value>osu!profile ID</value>
+    </data>
+    <data name="NewPassword" xml:space="preserve">
+        <value>new password</value>
+    </data>
+    <data name="EnterPasswordToSave" xml:space="preserve">
+        <value>enter password to save</value>
+    </data>
+    <data name="YourDescription" xml:space="preserve">
+        <value>Your Description</value>
+    </data>
+    <data name="Language" xml:space="preserve">
+        <value>Language</value>
+    </data>
+</root>

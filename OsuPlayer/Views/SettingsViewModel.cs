@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Reactive.Disposables;
+using System.Reactive.Linq;
 using Avalonia.Controls;
 using OsuPlayer.Data.OsuPlayer.Classes;
 using OsuPlayer.Data.OsuPlayer.Enums;
@@ -12,6 +14,7 @@ using OsuPlayer.Network;
 using OsuPlayer.Network.Online;
 using OsuPlayer.ViewModels;
 using OsuPlayer.Windows;
+using OsuPlayer.Extensions;
 using ReactiveUI;
 
 namespace OsuPlayer.Views;
@@ -26,6 +29,20 @@ public class SettingsViewModel : BaseViewModel
 
     public MainWindow? MainWindow;
     private string _patchnotes;
+    private ObservableCollection<string> _availableLanguages;
+    private string _currentLanguage;
+
+    public string CurrentLanguage
+    {
+        get => _currentLanguage;
+        set => this.RaiseAndSetIfChanged(ref _currentLanguage, value);
+    }
+
+    public ObservableCollection<string> AvailableLanguages
+    {
+        get => _availableLanguages;
+        set => this.RaiseAndSetIfChanged(ref _availableLanguages, value);
+    }
 
     public string Patchnotes
     {
@@ -51,6 +68,11 @@ public class SettingsViewModel : BaseViewModel
         Disposable.Create(() => { }).DisposeWith(disposables);
 
         Patchnotes = await GitHubUpdater.GetLatestPatchnotes(true);
+
+        AvailableLanguages = CultureInfo.GetCultures(CultureTypes.NeutralCultures)
+            .OrderBy(x => x.EnglishName)
+            .Select(x => x.EnglishName)
+            .ToObservableCollection();
     }
 
     public User? CurrentUser => ProfileManager.User;

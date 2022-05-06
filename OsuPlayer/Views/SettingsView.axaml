@@ -7,6 +7,7 @@
              xmlns:controls="clr-namespace:OsuPlayer.Controls"
              xmlns:avalonia="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
              xmlns:ctxt="clr-namespace:ColorTextBlock.Avalonia;assembly=ColorTextBlock.Avalonia"
+             xmlns:osuPlayer="clr-namespace:OsuPlayer"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="OsuPlayer.Views.SettingsView"
              Initialized="SettingsView_OnInitialized">
@@ -41,36 +42,42 @@
                     </Panel>
 
                     <StackPanel Spacing="10" Margin="10" Name="GeneralSettingsPanel">
-                        <TextBlock Text="General Settings" FontSize="32"
+                        <TextBlock Text="{x:Static osuPlayer:Resources.GeneralSettingsTitle}" FontSize="32"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Stretch" />
 
                         <StackPanel Spacing="5" Name="ImportOsuSongs">
                             <TextBlock Text="{Binding OsuLocation}" />
-                            <Button Content="import osu! songs" Click="ImportSongsClick"
+                            <Button Content="{x:Static osuPlayer:Resources.ImportSongsText}" Click="ImportSongsClick"
                                     HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
                         </StackPanel>
 
                         <StackPanel Spacing="5" Name="ImportCollections">
-                            <TextBlock Text="Import osu! collections" />
-                            <Button Content="start import" Click="ImportCollectionsClick"
+                            <TextBlock Text="{x:Static osuPlayer:Resources.ImportSongsText}" />
+                            <Button Content="{x:Static osuPlayer:Resources.StartImportText}" Click="ImportCollectionsClick"
                                     HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
                         </StackPanel>
 
+                        <StackPanel Spacing="5" Name="Language">
+                            <TextBlock Text="{x:Static osuPlayer:Resources.Language}" />
+                            <ComboBox SelectedItem="{Binding CurrentLanguage}"
+                                      Items="{Binding AvailableLanguages}" HorizontalAlignment="Stretch" />
+                        </StackPanel>
+                        
                         <StackPanel Spacing="5" Name="WindowBlurMethod">
-                            <TextBlock Text="Window Blur Method" />
+                            <TextBlock Text="{x:Static osuPlayer:Resources.WindowBlurMethodTitle}" />
                             <ComboBox SelectedItem="{Binding SelectedTransparencyLevel}"
                                       Items="{Binding WindowTransparencyLevels}" HorizontalAlignment="Stretch" />
                         </StackPanel>
 
                         <StackPanel Spacing="5" Name="StartupSong">
-                            <TextBlock Text="Startup song" />
+                            <TextBlock Text="{x:Static osuPlayer:Resources.StartupSongTitle}" />
                             <ComboBox SelectedItem="{Binding SelectedStartupSong}" Items="{Binding StartupSongs}"
                                       HorizontalAlignment="Stretch" />
                         </StackPanel>
 
                         <StackPanel Spacing="5" Name="SongsSortingMode">
-                            <TextBlock Text="Sorting Mode" />
+                            <TextBlock Text="{x:Static osuPlayer:Resources.SortingModeTitle}" />
                             <ComboBox SelectedItem="{Binding SelectedSortingMode}" Items="{Binding SortingModes}"
                                       HorizontalAlignment="Stretch" />
                         </StackPanel>
@@ -91,12 +98,12 @@
                     </Panel>
 
                     <StackPanel Margin="10" Spacing="10" Name="UserSettingsPanel">
-                        <TextBlock Text="User Settings" FontSize="32" VerticalAlignment="Center"
+                        <TextBlock Text="{x:Static osuPlayer:Resources.UserSettingsTitle}" FontSize="32" VerticalAlignment="Center"
                                    HorizontalAlignment="Stretch" />
 
                         <StackPanel Spacing="5" Name="Login">
                             <TextBlock Text="{Binding CurrentUser, Converter={StaticResource SettingsUserConverter}}" />
-                            <Button Content="log in" Click="LoginClick" HorizontalAlignment="Stretch"
+                            <Button Content="{x:Static osuPlayer:Resources.Login}" Click="LoginClick" HorizontalAlignment="Stretch"
                                     HorizontalContentAlignment="Center" />
                         </StackPanel>
                     </StackPanel>
@@ -116,12 +123,12 @@
                     </Panel>
 
                     <StackPanel Margin="10" Spacing="10" Name="AudioSettingsPanel">
-                        <TextBlock Text="Audio Settings" FontSize="32" VerticalAlignment="Center"
+                        <TextBlock Text="{x:Static osuPlayer:Resources.AudioSettingsTitle}" FontSize="32" VerticalAlignment="Center"
                                    HorizontalAlignment="Stretch" />
 
                         <StackPanel Spacing="5" Name="EqualizerSettings">
-                            <TextBlock Text="Equalizer settings" />
-                            <Button Content="open equalizer" Click="OpenEqClick" HorizontalAlignment="Stretch"
+                            <TextBlock Text="{x:Static osuPlayer:Resources.EqualizerSettingsText}" />
+                            <Button Content="{x:Static osuPlayer:Resources.OpenEqualizerText}" Click="OpenEqClick" HorizontalAlignment="Stretch"
                                     HorizontalContentAlignment="Center" />
                         </StackPanel>
                     </StackPanel>
@@ -141,7 +148,7 @@
                     </Panel>
                     
                     <StackPanel Margin="10" Spacing="10" Name="PatchnotesPanel">
-                        <TextBlock Text="Patch-notes" FontSize="32" VerticalAlignment="Center"
+                        <TextBlock Text="{x:Static osuPlayer:Resources.PatchNotesTitle}" FontSize="32" VerticalAlignment="Center"
                                    HorizontalAlignment="Stretch" />
 
                         <avalonia:MarkdownScrollViewer Markdown="{Binding Patchnotes}">
