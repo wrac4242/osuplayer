@@ -8,17 +8,16 @@ namespace OsuPlayer.Modules.Hotkeys;
 
 public class HotkeyInitializer
 {
+    private IHotkeyImplementation? _hotkeyImplementation;
     private MainWindow _mainWindow;
 
-    private IHotkeyImplementation? _hotkeyImplementation;
-    
     public HotkeyInitializer(MainWindow mainWindow)
     {
         _mainWindow = mainWindow;
 
         _hotkeyImplementation = GetHotkeyImplementation();
 
-        if(_hotkeyImplementation != default)
+        if (_hotkeyImplementation != default)
             _hotkeyImplementation.Handle = GetHandle();
     }
 
@@ -46,12 +45,12 @@ public class HotkeyInitializer
 
     public void SetHotkeys(List<Hotkey> hotkeys)
     {
-        if (_hotkeyImplementation == default) 
+        if (_hotkeyImplementation == default)
             return;
-        
+
         _hotkeyImplementation.Hotkeys = hotkeys;
     }
-    
+
     public void RegisterHotkeys()
     {
         _hotkeyImplementation?.InitializeHotkeys();
@@ -60,5 +59,10 @@ public class HotkeyInitializer
     public void UnregisterHotkeys()
     {
         _hotkeyImplementation?.DeInitializeHotkeys();
+    }
+
+    public void MessageHandleLoop()
+    {
+        _hotkeyImplementation?.MessageHandleLoop();
     }
 }

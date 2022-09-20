@@ -1,16 +1,9 @@
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Threading.Tasks;
-using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using Avalonia.Platform;
-using Avalonia.Remote.Protocol.Input;
-using Avalonia.VisualTree;
-using Avalonia.Win32;
 using OsuPlayer.Base.ViewModels;
 using OsuPlayer.IO.Storage.Playlists;
 using OsuPlayer.Modules.Hotkeys;
-using OsuPlayer.Network;
 using OsuPlayer.Network.Discord;
 using OsuPlayer.Views;
 using ReactiveUI;
@@ -19,9 +12,9 @@ namespace OsuPlayer.Windows;
 
 public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
 {
-    private Player _player;
     private HotkeyInitializer _hotkeyInitializer;
-    
+    private Player _player;
+
     public MainWindow()
     {
         InitializeComponent();
@@ -32,11 +25,11 @@ public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
         ViewModel = viewModel;
 
         _player = player;
-        
+
         Task.Run(_player.ImportSongsAsync);
 
-        _hotkeyInitializer = new (this);
-        
+        _hotkeyInitializer = new HotkeyInitializer(this);
+
         InitializeComponent();
 
         using var config = new Config();
@@ -54,15 +47,16 @@ public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
 
             var hotkeys = new List<Hotkey>()
             {
-                new Hotkey(1, Key.Right, () =>
-                {
-                    _player.NextSong();
-                })
+                new(1, WinKey.Right, () => { _player.NextSong(); }, ModifierKey.Control)
             };
-            
+
             _hotkeyInitializer.SetHotkeys(hotkeys);
-            
-            RegisterHotkeys();
+
+            Task.Run(() =>
+            {
+                RegisterHotkeys();
+                _hotkeyInitializer.MessageHandleLoop();
+            });
         });
 
         AvaloniaXamlLoader.Load(this);
@@ -89,9 +83,9 @@ public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
         config.Container.RepeatMode = ViewModel.Player.Repeat;
         config.Container.IsShuffle = ViewModel.Player.IsShuffle.Value;
         config.Container.ActivePlaylistId = ViewModel.Player.ActivePlaylistId;
-        
+
         _player.DisposeDiscordClient();
-        
+
         UnregisterHotkeys();
     }
 
@@ -105,9 +99,9 @@ public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
 #if DEBUG
         // We are ignoring update checks if we are running in debug.
         // The local development version will always be greater than the latest release
-        
+
         // Uncomment code below to force the update UI to show for testing purposes.
-        
+
         // var result = await GitHubUpdater.CheckForUpdates(config.Container.ReleaseChannel);
         //
         // if (result.IsNewVersionAvailable)
